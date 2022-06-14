@@ -1,18 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
-        id="cordova-plugin-keychain-touch-id"
-		version="3.3.0">
-    <name>TouchID and Keychain</name>
-	  <author>S.J.Hoeksma</author>
-    <description>TouchID and Keychain cordova plugin for iOS</description>
+        id="cordova-plugin-keychain-biometric-id"
+		version="3.3.1">
+    <name>Biometric and Keychain</name>
+	  <author>XH.IO</author>
+    <description>Biometric and Keychain cordova plugin for iOS and Android</description>
     <license>Apache 2.0</license>
-    <keywords>cordova,touchid,keychain,plugin</keywords>
+    <keywords>cordova,faceid,touchid,biometrickeychain,plugin</keywords>
     <engines>
-      <engine name="cordova" version=">=3.0.0"/>
+      <engine name="cordova" version=">=10.0.0"/>
     </engines>
 
-    <repo>https://github.com/sjhoeksma/cordova-plugin-keychain-touch-id.git</repo>
-    <issue>https://github.com/sjhoeksma/cordova-plugin-keychain-touch-id/issues</issue>
+    <repo>https://github.com/xh/cordova-plugin-keychain-biometric-id.git</repo>
+    <issue>https://github.com/xh/cordova-plugin-keychain-biometric-id/issues</issue>
 	  <js-module src="www/touchid.js" name="TouchID">
         <clobbers target="window.plugins.touchid" />
     </js-module>
@@ -32,7 +32,6 @@
         <framework src="LocalAuthentication.framework"/>
     </platform>
 
-    <!-- android -->
     <platform name="android">
         <config-file target="res/xml/config.xml" parent="/*">
             <feature name="TouchID" >

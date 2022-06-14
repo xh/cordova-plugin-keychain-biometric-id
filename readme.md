@@ -1,23 +1,19 @@
 
 
-# cordova-plugin-keychain-touch-id 
+# cordova-plugin-keychain-biometric-id 
 
-A cordova plugin adding the iOS TouchID / Android fingerprint to your app and allowing you to store a password securely in the device keychain.
+A cordova plugin that enables your app to use iOS/Android biometric authentication to store and retrieve a password or other key/value pair securely in the device's keychain.  
+
+The plugin will use a device's built in biometric auth system:  FaceID face scan on iPhone 10+,  TouchID fingerprint scan on iPhone 5S+.
 
 ## Installation
 
 ### Automatically (CLI / Plugman)
 Compatible with [Cordova Plugman](https://github.com/apache/cordova-plugman), compatible with [PhoneGap 3.0 CLI](http://docs.phonegap.com/en/3.0.0/guide_cli_index.md.html#The%20Command-line%20Interface_add_features), here's how it works with the CLI (backup your project first!):
 
-From npm:
-```
-$ cordova plugin add cordova-plugin-keychain-touch-id
-$ cordova prepare
-```
-
 The latest, from the master repo:
 ```
-$ cordova plugin add https://github.com/sjhoeksma/cordova-plugin-keychain-touch-id
+$ cordova plugin add https://github.com/xh/cordova-plugin-keychain-biometric-id
 $ cordova prepare
 ```
 
@@ -49,6 +45,7 @@ iOS: Copy the four `.h` and two `.m` files to `platforms/ios/<ProjectName>/Plugi
 * https://github.com/kunder-lab/kunder-touchid-keychain
 * https://github.com/PeerioTechnologies/peerio-keychain-touchid
 * https://github.com/nheezemans/touchid/blob/master/src/ios/TouchID.m
+* https://github.com/sjhoeksma/cordova-plugin-keychain-touch-id
 
 Cordova plugin for interacting with iOS touchId and keychain
 
@@ -93,16 +90,22 @@ This invalid key is removed - user needs to **save their password again**.
 
 ```js
 if (window.plugins) {
-window.plugins.touchid.isAvailable(function(biometryType) {
-var serviceName = (biometryType === "face") ? "Face ID" : "Touch ID";
-window.plugins.touchid.has("MyKey", function() {
-alert(serviceName + " avaialble and Password key available");
-}, function() {
-alert(serviceName + " available but no Password Key available");
-});
-}, function(msg) {
-alert("no Touch ID available");
-});
+    window.plugins.touchid.isAvailable(
+        function(biometryType) {
+            const serviceName = (biometryType === "face") ? "Face ID" : "Touch ID";
+            window.plugins.touchid.has("MyKey", 
+                function() {
+                    alert(serviceName + " available and Password key available");
+                }, 
+                function() {
+                    alert(serviceName + " available but no Password Key available");
+                }
+            );
+        }, 
+        function(errorCode) {
+            alert("no Touch ID available: " + errorCode);
+        }
+    );
 }
 
 if (window.plugins) {

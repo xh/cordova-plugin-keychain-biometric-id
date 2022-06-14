@@ -1,18 +1,20 @@
 {
-  "name": "cordova-plugin-keychain-touch-id",
-  "version": "3.3.0",
-  "description": "Scan the fingerprint of your user with the TouchID sensor (iPhone 5S, iPhone 6(S), ..) and control a key in the Keychain",
+  "name": "cordova-plugin-keychain-biometric-id",
+  "version": "3.3.1",
+  "description": "Use the device's biometric scanner to store/retrieve a key/value pair in the keychain",
   "cordova": {
-    "id": "cordova-plugin-keychain-touch-id",
+    "id": "cordova-plugin-keychain-biometric-id",
     "platforms": [
       "ios"
     ]
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/sjhoeksma/cordova-plugin-keychain-touch-id.git"
+    "url": "git+https://github.com/xh/cordova-plugin-keychain-biometric-id.git"
   },
   "keywords": [
+    "FaceID",
+    "Face ID",
     "TouchID",
     "Touch ID",
     "Fingerprint",
@@ -25,15 +27,15 @@
   "engines": [
     {
       "name": "cordova",
-      "version": ">=3.0.0"
+      "version": ">=10.0.0"
     }
   ],
-  "author": "S.J.Hoeksma",
+  "author": "XH.IO",
   "license": "Apache-2.0",
   "bugs": {
-    "url": "https://github.com/sjhoeksma/cordova-plugin-keychain-touch-id/issues"
+    "url": "https://github.com/xh/cordova-plugin-keychain-biometric-id/issues"
   },
-  "homepage": "https://github.com/sjhoeksma/cordova-plugin-keychain-touch-id#readme",
+  "homepage": "https://github.com/xh/cordova-plugin-keychain-biometric-id#readme",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
