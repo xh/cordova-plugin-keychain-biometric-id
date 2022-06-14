@@ -6,6 +6,10 @@ A cordova plugin that enables your app to use iOS/Android biometric authenticati
 
 The plugin will use a device's built in biometric auth system:  FaceID face scan on iPhone 10+,  TouchID fingerprint scan on iPhone 5S+.
 
+## 2022 Status: 
+This plugin has been confirmed to work in a Cordova app running on an iPhone 11 Pro with iOS 15.5.
+It has not yet been tested Android devices.
+
 ## Installation
 
 ### Automatically (CLI / Plugman)
@@ -59,7 +63,7 @@ if (window.plugins.touchid) {
 }
 ```
 
-Call the function you like
+## Call the functions below as needed:
 
 **isAvailable(successCallback(biometryType), errorCallback(msg))** will Check if touchid is available on the used device. The `successCallback` gets the `biometryType` argument with 'face' on iPhone X, 'touch' on other devices.
 
